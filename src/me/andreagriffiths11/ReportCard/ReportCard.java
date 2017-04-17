@@ -1,66 +1,97 @@
 package me.andreagriffiths11.ReportCard;
-import java.util.Scanner;
 
-/*This class creates a report card for Student advisors to produce a grade average and access the need for extra credits in case by case basis*/
-
+/*This class creates a report card for Teachers to store grades for the year*/
 public class ReportCard {
-	
-public static void main(String [ ] args ) {
+    public static void main(String... args){
+    }
+		public ReportCard (){
+		}
+    private String Name;
+    private String Year;
+    private int mathGrade ;
+    private int scienceGrade;
+    private int englishGrade;
+    private int Sum ; 
+    private int gradesTotal ;
+    private double Percentage ;
+    
+  /* constructor*/
+    public ReportCard(String name, String year, int math, int science, int english, int sum, int total) {
+        
+    	{
+    	Name = name; 
+        Year = year; 
+    	mathGrade = math;
+    	scienceGrade = science;
+    	englishGrade = english;
+        Sum = 0 ; 
+        gradesTotal = total; 
+        Percentage = 0.0; 		
+    	
+    	}
+    
+    }
+    /* Getter and Setters for course grades*/
+    public void getMathGrade(int math){
+       mathGrade = math;
+    }
+    public void setMathGrade(int math){
+        mathGrade = math; 	
+    }
 
-	/*create scanner*/
-	Scanner sc = new Scanner(System.in);
-	/*define data type*/
-	double math1, science2, english3, average;
-	
-		System.out.println("Enter Student's last name:"); //enter name
-		sc.nextLine();
-	    
-	  	System.out.println("Enter grade for Math:");
-	    math1=sc.nextDouble();
-	    
-	    System.out.println("Enter grade for Science:");
-	    science2=sc.nextDouble();
-	    
-	    System.out.println("Enter grade for English:");
-	    english3=sc.nextDouble();
-	    
-	   average = ( math1 + science2 + english3 ) / 3;
-	
-	   if( average < 60) {
-		   System.out.printf( "Semester grades average is: %.0f. Failing grade", average);
-		   
-	   } else if ( average <70){
-		   System.out.printf( "Semester grades average is: %.0f. Failing grade", average);
-		   
-	   } else if (average <80){
-		   System.out.printf( "Semester grades average is: %.0f. Passing grade", average);
-		   
-	   } else if (average <90){
-		   System.out.printf( "Semester grades average is: %.0f. Passing grade", average);
-		   
-	   } else if (average <=100){
-		   System.out.printf( "Semester grades average is: %.0f. Passing grade", average);
-		  
-	   } else {
-		   System.out.printf( "Semester grades average is " + average + "that's an invalid average check the grades" );
-		   
-	   }
-	   {
-	 System.out.println();  
-		        // Evaluate the need for extra credits  by manually inputting the students grade average
-		        System.out.print("Enter grade average *round up: " ); 
-		        // use scanner to get the value from user console  
-		        int intValue = sc.nextInt();  
-		        // close the scanner object  
-		        sc.close();  
-		        Integer myValue = new Integer(intValue); 
-		        String value = myValue.toString();
-		        System.out.println("ONLY FOR scholarship recipients "
-		        	 + "setup Mandatory counseling meeting if average below 70. This students average is: " + value );          
-	   }     
-    }   
-}
+    public void getScienceGrade(int science){
+        scienceGrade = science;
+    }
+    public void setScienceGrade(int science){
+        scienceGrade = science;
+    }
+    public void getEnglishGrade(int english){
+        englishGrade = english;
+    }
+    public void setEnglishGrade(int english){
+        englishGrade = english;
+ }
+    /* Getter and setter for Student name */
+    public String getName() {
+        return Name;
+    }
+    public void setName(String name){
+    	this.Name = name; 	  
+    	}
+    
+    /* Getter and setter for Year */
+    public String getYear() {
+       return Year;
+    }
+    public void setYear(String year){
+		this.Year = year; 	  
+	}
+  
+    /* Getter and setter for sum, total and percentage */
 
-	   
-	    
-   
+    public double getSum(){
+        Sum = mathGrade + scienceGrade + englishGrade ; 
+		return Sum;   
+    }
+    public int getGradesTotal(){
+		return gradesTotal;  
+	}
+	public void setGradesTotal(int total){
+		gradesTotal = total; 		   
+	}
+	
+	public double getPercentage(){
+		Percentage = (Sum / gradesTotal) * 100; 
+		return Percentage;  
+    }
+    /* Print to string */
+    @Override
+    public String toString() {
+    	    return String.format("Report Card:" +  "Math = " + mathGrade +
+    	    	    "Science = " + scienceGrade + "\n" +
+    	    	    "English = " + englishGrade + "\n" +
+    	    	    "Name = " + Name + "\n" + 
+    	            "Year = " + Year + "\n" + 
+    	            "Percentage = " + Percentage + "\n"); 
+    	 }
+ 	}
