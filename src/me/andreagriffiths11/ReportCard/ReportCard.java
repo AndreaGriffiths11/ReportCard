@@ -2,10 +2,7 @@ package me.andreagriffiths11.ReportCard;
 
 /*This class creates a report card for Teachers to store grades for the year*/
 public class ReportCard {
-    public static void main(String... args){
-    }
-		public ReportCard (){
-		}
+		
     private String Name;
     private String Year;
     private int mathGrade ;
@@ -15,21 +12,22 @@ public class ReportCard {
     private int gradesTotal ;
     private double Percentage ;
     
+    public ReportCard (){
+	}
   /* constructor*/
     public ReportCard(String name, String year, int math, int science, int english, int sum, int total) {
         
     	{
-    	Name = name; 
-        Year = year; 
+    	this.Name = name; 
+        this.Year = year; 
     	mathGrade = math;
     	scienceGrade = science;
     	englishGrade = english;
         Sum = 0 ; 
         gradesTotal = total; 
         Percentage = 0.0; 		
-    	
+ 
     	}
-    
     }
     /* Getter and Setters for course grades*/
     public void getMathGrade(int math){
